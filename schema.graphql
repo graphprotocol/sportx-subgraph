@@ -1,6 +1,33 @@
-type Gravatar @entity {
+type Market @entity {
   id: ID!
-  owner: Bytes!
-  displayName: String!
-  imageUrl: String!
+  baseToken: Bytes!
+  outcomeOne: String!
+  outcomeTwo: String!
+  outcomeVoid: String!
+  title: String!
+  referenceUrl: String!
+  registered: Boolean!
+}
+
+type Order @entity {
+  id: ID!
+  orderHash: Bytes!
+  maker: Bytes!
+  market: [Market!]
+  taker: Bytes!
+  newFilledAmount: BigInt!
+  totalBetSize: BigInt!
+  percentageOdds: BigInt!
+  expiry: BigInt!
+  oracleFee: BigInt!
+  salt: BigInt!
+  relayer: Bytes!
+  isMakerBettingOutcomeOne: Boolean!
+  amount: BigInt!
+  escrow: BigInt!
+  potSize: BigInt!
+  makerOracleFee: BigInt!
+  takerOracleFee: BigInt!
+  relayerMakerFee: BigInt!
+  relayerTakerFee: BigInt!
 }

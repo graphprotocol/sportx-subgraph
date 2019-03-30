@@ -1,27 +1,45 @@
 specVersion: 0.0.1
-description: Gravatar for Ethereum
-repository: https://github.com/graphprotocol/example-subgraph
+description: Sports betting on Ethereum
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: Gravity
+    name: Market
     network: mainnet
     source:
-      address: '0x2E645469f354BB4F5c8a05B3b30A929361cf77eC'
-      abi: Gravity
+      address: '0x28Fd7Cdcd2A0cd1CBBc0D3835A2375bC52e26193'
+      abi: MarketRegistry
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.1
       language: wasm/assemblyscript
       entities:
-        - Gravatar
+        - Market
       abis:
-        - name: Gravity
-          file: ./abis/Gravity.json
+        - name: MarketRegistry
+          file: ./abis/MarketRegistry.json
       eventHandlers:
-        - event: NewGravatar(uint256,address,string,string)
-          handler: handleNewGravatar
-        - event: UpdatedGravatar(uint256,address,string,string)
-          handler: handleUpdatedGravatar
+        - event: MarketRegistered(bytes32,tuple)
+          handler: handleMarketRegistered
+        - event: MarketUnregistered(bytes32,tuple)
+          handler: handleMarketUnRegistered
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: FillOrder
+    network: mainnet
+    source:
+      address: '0x8c1F2FfC96020D9539b0489A4Cb221b952Ad2F0F'
+      abi: FillOrder
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.1
+      language: wasm/assemblyscript
+      entities:
+        - Order
+      abis:
+        - name: FillOrder
+          file: ./abis/FillOrder.json
+      eventHandlers:
+        - event: OrderFill(address,bytes32,address,uint256,bytes32,tuple,tuple)
+          handler: handleOrder
       file: ./src/mapping.ts

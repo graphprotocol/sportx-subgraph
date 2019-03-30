@@ -1,0 +1,444 @@
+[
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "initialized",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function",
+    "signature": "0x158ef93e"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "hashToMarket",
+    "outputs": [
+      {
+        "name": "baseToken",
+        "type": "address"
+      },
+      {
+        "name": "startDate",
+        "type": "uint48"
+      },
+      {
+        "name": "expiryDate",
+        "type": "uint48"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function",
+    "signature": "0xcc8d37e5"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "name": "marketRegistered",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function",
+    "signature": "0xfdc77c13"
+  },
+  {
+    "inputs": [
+      {
+        "name": "_fillOrder",
+        "type": "address"
+      },
+      {
+        "name": "_baseTokenRegistry",
+        "type": "address"
+      },
+      {
+        "name": "_marketCreatorWhitelist",
+        "type": "address"
+      },
+      {
+        "name": "_superAdminRole",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor",
+    "signature": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "marketHash",
+        "type": "bytes32"
+      },
+      {
+        "components": [
+          {
+            "name": "baseToken",
+            "type": "address"
+          },
+          {
+            "name": "startDate",
+            "type": "uint48"
+          },
+          {
+            "name": "expiryDate",
+            "type": "uint48"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "outcomeOneName",
+            "type": "string"
+          },
+          {
+            "name": "outcomeTwoName",
+            "type": "string"
+          },
+          {
+            "name": "outcomeVoidName",
+            "type": "string"
+          },
+          {
+            "name": "referenceUrl",
+            "type": "string"
+          }
+        ],
+        "indexed": false,
+        "name": "marketRequest",
+        "type": "tuple"
+      }
+    ],
+    "name": "MarketRegistered",
+    "type": "event",
+    "signature": "0xbbac8983160fa126c93316a9f40b6f706d655018664db45ad4266cc3926765da"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "marketHash",
+        "type": "bytes32"
+      },
+      {
+        "components": [
+          {
+            "name": "baseToken",
+            "type": "address"
+          },
+          {
+            "name": "startDate",
+            "type": "uint48"
+          },
+          {
+            "name": "expiryDate",
+            "type": "uint48"
+          }
+        ],
+        "indexed": false,
+        "name": "market",
+        "type": "tuple"
+      }
+    ],
+    "name": "MarketUnregistered",
+    "type": "event",
+    "signature": "0xcb19113d9c188fd2246aea804c3922a3c1deb7ceb18280536c49c33eb37d67d1"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_escrow",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0xc4d66de8"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "name": "baseToken",
+            "type": "address"
+          },
+          {
+            "name": "startDate",
+            "type": "uint48"
+          },
+          {
+            "name": "expiryDate",
+            "type": "uint48"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "outcomeOneName",
+            "type": "string"
+          },
+          {
+            "name": "outcomeTwoName",
+            "type": "string"
+          },
+          {
+            "name": "outcomeVoidName",
+            "type": "string"
+          },
+          {
+            "name": "referenceUrl",
+            "type": "string"
+          }
+        ],
+        "name": "request",
+        "type": "tuple"
+      }
+    ],
+    "name": "registerMarket",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0x5ada7474"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "name": "baseToken",
+            "type": "address"
+          },
+          {
+            "name": "startDate",
+            "type": "uint48"
+          },
+          {
+            "name": "expiryDate",
+            "type": "uint48"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "outcomeOneName",
+            "type": "string"
+          },
+          {
+            "name": "outcomeTwoName",
+            "type": "string"
+          },
+          {
+            "name": "outcomeVoidName",
+            "type": "string"
+          },
+          {
+            "name": "referenceUrl",
+            "type": "string"
+          }
+        ],
+        "name": "requests",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "registerMarkets",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0x82cc5d8d"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "marketHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "unregisterMarket",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0xb6cb4c41"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "marketHashes",
+        "type": "bytes32[]"
+      }
+    ],
+    "name": "unregisterMarkets",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0x8a10b33b"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "marketHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getMarket",
+    "outputs": [
+      {
+        "components": [
+          {
+            "name": "baseToken",
+            "type": "address"
+          },
+          {
+            "name": "startDate",
+            "type": "uint48"
+          },
+          {
+            "name": "expiryDate",
+            "type": "uint48"
+          }
+        ],
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function",
+    "signature": "0xc3c95c7b"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "marketHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getExpiryDate",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function",
+    "signature": "0xc3a335cf"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "marketHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getMarketValidity",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function",
+    "signature": "0xd1e47f9a"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "components": [
+          {
+            "name": "baseToken",
+            "type": "address"
+          },
+          {
+            "name": "startDate",
+            "type": "uint48"
+          },
+          {
+            "name": "expiryDate",
+            "type": "uint48"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "outcomeOneName",
+            "type": "string"
+          },
+          {
+            "name": "outcomeTwoName",
+            "type": "string"
+          },
+          {
+            "name": "outcomeVoidName",
+            "type": "string"
+          },
+          {
+            "name": "referenceUrl",
+            "type": "string"
+          }
+        ],
+        "name": "request",
+        "type": "tuple"
+      }
+    ],
+    "name": "getMarketRequestHash",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "pure",
+    "type": "function",
+    "signature": "0x785d8cd3"
+  }
+]

@@ -1,0 +1,459 @@
+[
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "initialized",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function",
+    "signature": "0x158ef93e"
+  },
+  {
+    "inputs": [
+      {
+        "name": "_transactionFeePool",
+        "type": "address"
+      },
+      {
+        "name": "_superAdminRole",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor",
+    "signature": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "maker",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "marketHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "name": "taker",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "newFilledAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "orderHash",
+        "type": "bytes32"
+      },
+      {
+        "components": [
+          {
+            "name": "marketHash",
+            "type": "bytes32"
+          },
+          {
+            "name": "totalBetSize",
+            "type": "uint256"
+          },
+          {
+            "name": "percentageOdds",
+            "type": "uint256"
+          },
+          {
+            "name": "expiry",
+            "type": "uint256"
+          },
+          {
+            "name": "oracleFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerMakerFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerTakerFee",
+            "type": "uint256"
+          },
+          {
+            "name": "salt",
+            "type": "uint256"
+          },
+          {
+            "name": "maker",
+            "type": "address"
+          },
+          {
+            "name": "relayer",
+            "type": "address"
+          },
+          {
+            "name": "isMakerBettingOutcomeOne",
+            "type": "bool"
+          }
+        ],
+        "indexed": false,
+        "name": "makerOrder",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "name": "takerAmount",
+            "type": "uint256"
+          },
+          {
+            "name": "takerEscrow",
+            "type": "uint256"
+          },
+          {
+            "name": "potSize",
+            "type": "uint256"
+          },
+          {
+            "name": "makerOracleFee",
+            "type": "uint256"
+          },
+          {
+            "name": "takerOracleFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerMakerFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerTakerFee",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "name": "orderAmounts",
+        "type": "tuple"
+      }
+    ],
+    "name": "OrderFill",
+    "type": "event",
+    "signature": "0x3bd2463fb136e120793661918792f69b15b7b03d24f1315384d075f1e59d4c6d"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_marketRegistry",
+        "type": "address"
+      },
+      {
+        "name": "_fills",
+        "type": "address"
+      },
+      {
+        "name": "_escrow",
+        "type": "address"
+      },
+      {
+        "name": "_assertOrderValidator",
+        "type": "address"
+      },
+      {
+        "name": "_tokenTransferProxy",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0x1459457a"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "name": "marketHash",
+            "type": "bytes32"
+          },
+          {
+            "name": "totalBetSize",
+            "type": "uint256"
+          },
+          {
+            "name": "percentageOdds",
+            "type": "uint256"
+          },
+          {
+            "name": "expiry",
+            "type": "uint256"
+          },
+          {
+            "name": "oracleFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerMakerFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerTakerFee",
+            "type": "uint256"
+          },
+          {
+            "name": "salt",
+            "type": "uint256"
+          },
+          {
+            "name": "maker",
+            "type": "address"
+          },
+          {
+            "name": "relayer",
+            "type": "address"
+          },
+          {
+            "name": "isMakerBettingOutcomeOne",
+            "type": "bool"
+          }
+        ],
+        "name": "makerOrder",
+        "type": "tuple"
+      },
+      {
+        "name": "takerAmount",
+        "type": "uint256"
+      },
+      {
+        "name": "sig",
+        "type": "bytes"
+      }
+    ],
+    "name": "fillOrder",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0x47f23a94"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "name": "marketHash",
+            "type": "bytes32"
+          },
+          {
+            "name": "totalBetSize",
+            "type": "uint256"
+          },
+          {
+            "name": "percentageOdds",
+            "type": "uint256"
+          },
+          {
+            "name": "expiry",
+            "type": "uint256"
+          },
+          {
+            "name": "oracleFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerMakerFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerTakerFee",
+            "type": "uint256"
+          },
+          {
+            "name": "salt",
+            "type": "uint256"
+          },
+          {
+            "name": "maker",
+            "type": "address"
+          },
+          {
+            "name": "relayer",
+            "type": "address"
+          },
+          {
+            "name": "isMakerBettingOutcomeOne",
+            "type": "bool"
+          }
+        ],
+        "name": "makerOrder",
+        "type": "tuple"
+      },
+      {
+        "name": "takerAmount",
+        "type": "uint256"
+      },
+      {
+        "name": "sig",
+        "type": "bytes"
+      }
+    ],
+    "name": "fillOrderAndNet",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0x70474b4d"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "name": "marketHash",
+            "type": "bytes32"
+          },
+          {
+            "name": "totalBetSize",
+            "type": "uint256"
+          },
+          {
+            "name": "percentageOdds",
+            "type": "uint256"
+          },
+          {
+            "name": "expiry",
+            "type": "uint256"
+          },
+          {
+            "name": "oracleFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerMakerFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerTakerFee",
+            "type": "uint256"
+          },
+          {
+            "name": "salt",
+            "type": "uint256"
+          },
+          {
+            "name": "maker",
+            "type": "address"
+          },
+          {
+            "name": "relayer",
+            "type": "address"
+          },
+          {
+            "name": "isMakerBettingOutcomeOne",
+            "type": "bool"
+          }
+        ],
+        "name": "makerOrders",
+        "type": "tuple[]"
+      },
+      {
+        "name": "takerAmounts",
+        "type": "uint256[]"
+      },
+      {
+        "name": "sigs",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "batchFillOrders",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0x793578d0"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "name": "marketHash",
+            "type": "bytes32"
+          },
+          {
+            "name": "totalBetSize",
+            "type": "uint256"
+          },
+          {
+            "name": "percentageOdds",
+            "type": "uint256"
+          },
+          {
+            "name": "expiry",
+            "type": "uint256"
+          },
+          {
+            "name": "oracleFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerMakerFee",
+            "type": "uint256"
+          },
+          {
+            "name": "relayerTakerFee",
+            "type": "uint256"
+          },
+          {
+            "name": "salt",
+            "type": "uint256"
+          },
+          {
+            "name": "maker",
+            "type": "address"
+          },
+          {
+            "name": "relayer",
+            "type": "address"
+          },
+          {
+            "name": "isMakerBettingOutcomeOne",
+            "type": "bool"
+          }
+        ],
+        "name": "makerOrders",
+        "type": "tuple[]"
+      },
+      {
+        "name": "takerAmounts",
+        "type": "uint256[]"
+      },
+      {
+        "name": "sigs",
+        "type": "bytes[]"
+      }
+    ],
+    "name": "batchFillOrdersAndNet",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function",
+    "signature": "0xcce78dce"
+  }
+]
