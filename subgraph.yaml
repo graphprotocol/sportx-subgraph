@@ -19,9 +19,9 @@ dataSources:
         - name: MarketRegistry
           file: ./abis/MarketRegistry.json
       eventHandlers:
-        - event: MarketRegistered(bytes32,tuple)
+        - event: MarketRegistered(bytes32,(address,uint48,uint48,string,string,string,string,string))
           handler: handleMarketRegistered
-        - event: MarketUnregistered(bytes32,tuple)
+        - event: MarketUnregistered(bytes32,(address,uint48,uint48))
           handler: handleMarketUnRegistered
       file: ./src/mapping.ts
   - kind: ethereum/contract
@@ -40,6 +40,6 @@ dataSources:
         - name: FillOrder
           file: ./abis/FillOrder.json
       eventHandlers:
-        - event: OrderFill(address,bytes32,address,uint256,bytes32,tuple,tuple)
+        - event: OrderFill(address,bytes32,address,uint256,bytes32,(bytes32,uint256,uint256,uint256,uint256,uint256,uint256,uint256,address,address,bool),(uint256,uint256,uint256,uint256,uint256,uint256,uint256))
           handler: handleOrder
       file: ./src/mapping.ts
