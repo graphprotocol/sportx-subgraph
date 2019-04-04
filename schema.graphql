@@ -20,14 +20,14 @@ type Order @entity {
   percentageOdds: BigInt!
   expiry: BigInt!
   oracleFee: BigInt!
+  relayerMakerFee: BigInt!
+  relayerTakerFee: BigInt!
   salt: BigInt!
   relayer: Bytes!
   isMakerBettingOutcomeOne: Boolean!
-  amount: BigInt!
-  escrow: BigInt!
+  takerAmount: BigInt!
+  takerEscrow: BigInt!
   potSize: BigInt!
   makerOracleFee: BigInt!
   takerOracleFee: BigInt!
-  relayerMakerFee: BigInt!
-  relayerTakerFee: BigInt!
 }
