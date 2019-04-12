@@ -32,6 +32,7 @@ export function handleOrder(event: OrderFill): void {
   order.percentageOdds = event.params.makerOrder.percentageOdds
   order.expiry = event.params.makerOrder.expiry
   order.oracleFee = event.params.makerOrder.oracleFee
+  order.relayer = event.params.makerOrder.relayer
   order.relayerMakerFee = event.params.makerOrder.relayerMakerFee
   order.relayerTakerFee = event.params.makerOrder.relayerTakerFee
   order.salt= event.params.makerOrder.salt
