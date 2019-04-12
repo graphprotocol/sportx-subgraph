@@ -11,9 +11,8 @@ type Market @entity {
 
 type Order @entity {
   id: ID!
-  orderHash: Bytes!
   maker: Bytes!
-  market: [Market!]
+  market: Market
   taker: Bytes!
   newFilledAmount: BigInt!
   totalBetSize: BigInt!

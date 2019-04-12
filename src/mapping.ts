@@ -24,6 +24,7 @@ export function handleMarketUnRegistered(event: MarketUnregistered): void {
 export function handleOrder(event: OrderFill): void {
   let order = new Order(event.params.orderHash.toHex())
 
+  order.market = event.params.marketHash.toHex()
   order.maker= event.params.maker
   order.taker= event.params.taker
   order.newFilledAmount = event.params.newFilledAmount
