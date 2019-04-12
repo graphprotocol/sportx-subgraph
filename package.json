@@ -2,12 +2,12 @@
   "name": "sportx",
   "version": "0.1.0",
   "scripts": {
-    "create": "graph create fordn/sportx --node https://api.thegraph.com/deploy/",
-    "create-local": "graph create fordn/sportx --node http://127.0.0.1:8020",
+    "create": "graph create username/sportx --node https://api.thegraph.com/deploy/",
+    "create-local": "graph create username/sportx --node http://127.0.0.1:8020",
     "codegen": "graph codegen --debug --output-dir src/types/",
     "build": "graph build --debug",
-    "deploy": "graph deploy fordn/sportx --debug --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "deploy-local": "graph deploy fordn/sportx --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
+    "deploy": "graph deploy username/sportx --debug --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy-local": "graph deploy username/sportx --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
     "@graphprotocol/graph-ts": "^0.9.0",
